@@ -20,9 +20,47 @@ public class Game : MonoBehaviour {
         int selectionCardIndex = Random.Range(0, 3);
         SelectionCard.GetComponent<Renderer>().material = Materials[selectionCardIndex];
         CardNumber.GetComponent<Renderer>().material = Numbers[cardNumIndex];
+        SelectionCard.GetComponent<Renderer>().material = Materials[selectionCardIndex];
+        int contPerro=0;
+        int contChango=0;
+        int contVaca=0;
+        bool isValidNum = false;
+        int materialIndex = 0;
+        for (int i =0; i < Cartas.Length; i++) {
+            while (!isValidNum)
+            {
 
-        for(int i =0; i < Cartas.Length; i++) {
-            int materialIndex = Random.Range(0, 3);
+                materialIndex = Random.Range(0,3);
+
+                switch (materialIndex)
+                {
+                    case 0:
+                        if (contPerro < 3)
+                        {
+                            contPerro++;
+                            isValidNum = true;
+                        }
+                    break;
+
+                    case 1:
+                        if (contChango < 3)
+                        {
+                            contChango++;
+                            isValidNum = true;
+                        }
+                        break;
+
+                    case 2:
+                        if (contVaca < 3)
+                        {
+                            contVaca++;
+                            isValidNum = true;
+                        }
+                        break;
+                }
+                
+            }
+            isValidNum = false;
             Cartas[i].GetComponent<Renderer>().material = Materials[materialIndex];
         }
 
